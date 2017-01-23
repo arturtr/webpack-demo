@@ -6,7 +6,7 @@ const PATHS = {
   build: path.join(__dirname, 'build')
 }
 
-module.exports = {
+const common = {
   // Entry accepts a path or an object of entries.
   // We'll be using the latter form given it's
   // convenient with more complex configurations.
@@ -26,4 +26,10 @@ module.exports = {
       title: 'Webpack demo'
     })
   ]
+}
+
+module.exports = function(env) {
+  console.log('env', env)
+  
+  return common
 }
