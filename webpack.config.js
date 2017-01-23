@@ -65,6 +65,7 @@ const developmentConfig = {
       // Disabled as this won't work with html-webpack-template yet
       //multiStep: true,
     }),
+    new webpack.NamedModulesPlugin(),
   ],
 }
 
