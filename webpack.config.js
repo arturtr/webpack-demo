@@ -4,7 +4,7 @@ const webpack= require('webpack')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
 }
 
 const common = {
@@ -16,17 +16,17 @@ const common = {
   // convention by default so if a directory contains *index.js*,
   // it will resolve to that.
   entry: {
-    app: PATHS.app
+    app: PATHS.app,
   },
   output: {
     path: PATHS.build,
-    filename: '[name].js'
+    filename: '[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack demo'
-    })
-  ]
+      title: 'Webpack demo',
+    }),
+  ],
 }
 
 const developmentConfig = {
@@ -35,7 +35,7 @@ const developmentConfig = {
       // Delay the rebuild after the first change
       aggregateTimeout: 300,
       // Poll using interval (in ms, accepts boolean too)
-      poll: 1000
+      poll: 1000,
     },
 
     // Enable history API fallback so HTML5 History API based
@@ -68,7 +68,7 @@ const developmentConfig = {
   plugins: [
     // Ignore node_modules so CPU usage with poll watching drops significantly
     new webpack.WatchIgnorePlugin([
-      path.join(__dirname, 'node_modules')
+      path.join(__dirname, 'node_modules'),
     ]),
     // Enable multi-pass compilation for enhanced performance
     // in larger projects. Good default.
@@ -90,7 +90,7 @@ module.exports = function(env) {
     common,
     developmentConfig,
     {
-      plugins: common.plugins.concat(developmentConfig.plugins)
+      plugins: common.plugins.concat(developmentConfig.plugins),
     }
   )
 }

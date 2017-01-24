@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:lint": "eslint . --cache --fix",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "build": "webpack --env production"
   },
@@ -11,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^3.14.0",
     "html-webpack-plugin": "^2.26.0",
     "nodemon": "^1.11.0",
     "webpack": "^2.2.0",
