@@ -31,6 +31,13 @@ const common = {
 
 const developmentConfig = {
   devServer: {
+    watchOptions: {
+      // Delay the rebuild after the first change
+      aggregateTimeout: 300,
+      // Poll using interval (in ms, accepts boolean too)
+      poll: 1000
+    },
+
     // Enable history API fallback so HTML5 History API based
     // routing works. This is a good default that will come
     // in handy in more complicated setups.
@@ -59,6 +66,10 @@ const developmentConfig = {
     port: process.env.PORT, // Defaults to 8080
   },
   plugins: [
+    // Ignore node_modules so CPU usage with poll watching drops significantly
+    new webpack.WatchIgnorePlugin([
+      path.join(__dirname, 'node_modules')
+    ]),
     // Enable multi-pass compilation for enhanced performance
     // in larger projects. Good default.
     new webpack.HotModuleReplacementPlugin({
