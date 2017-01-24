@@ -78,6 +78,19 @@ const developmentConfig = {
     }),
     new webpack.NamedModulesPlugin(),
   ],
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+        },
+      },
+    ],
+  },
 }
 
 module.exports = function(env) {
